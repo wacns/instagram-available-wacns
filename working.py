@@ -279,7 +279,7 @@ def start(mail):
 
 
 running = 0
-max = 150
+max = 5
 while True:
     if running < max:
         chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
