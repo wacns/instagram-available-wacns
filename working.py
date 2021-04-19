@@ -7,7 +7,6 @@ import random
 import secrets
 import os
 from os import environ
-os.system('tzutil /s "Arab Standard Time"')
 req = requests.session()
 cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
@@ -47,10 +46,8 @@ def hml(mail, running):
         if ("Neither") in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.localtime()
-                                     [0], time.localtime()[1], time.localtime()[2])
-            timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[4], time.localtime()[5],
-                                          time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
@@ -119,10 +116,8 @@ def gmil(mail, running):
         if (',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[]') in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.localtime()
-                                     [0], time.localtime()[1], time.localtime()[2])
-            timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[
-                                          4], time.localtime()[5], time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
@@ -187,10 +182,8 @@ def yho(mail, running):
         if ('"error":"messages.INVALID_USERNAME"') in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.localtime()
-                                     [0], time.localtime()[1], time.localtime()[2])
-            timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[4], time.localtime()[5],
-                                          time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
