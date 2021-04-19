@@ -245,7 +245,7 @@ def start(mail):
         time.sleep(10)
 
 
-while True:
+def main():
     chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
     length = 6
     domainss = ["@yahoo.com", "@gmail.com",
@@ -258,3 +258,11 @@ while True:
             mail += random.choice(chars)
         mail += random.choice(domainss)
     start(mail)
+
+threadz = []
+for _ in range(10):
+    th = threading.Thread(target=main)
+    th.start()
+    threadz.append(th)
+for thread in threadz:
+    th.join()
