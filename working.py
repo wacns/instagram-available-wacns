@@ -12,9 +12,6 @@ cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
 token = str(environ['token'])
 chatid = str(environ['chatid'])
-def sprint(*a, **b):
-    with mylock:
-        print(*a, **b)
 
 
 def slow(M):
@@ -24,7 +21,7 @@ def slow(M):
         mm.sleep(0.5 / 120)
 
 
-def hml(mail, running):
+def hml(mail):
     try:
         urlhotmail = f"https://odc.officeapps.live.com/odc/emailhrd/getidp?hm=0&emailAddress={mail}&_=1604288577990"
         datahotmail = ''
@@ -44,10 +41,10 @@ def hml(mail, running):
         send = req.get(urlhotmail, headers=headerhotmail,
                        data=datahotmail, timeout=20)
         if ("Neither") in send.text:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
-            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),
+                                     time.strftime("%m"), time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"), time.strftime(
+                "%M"), time.strftime("%S"), time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
@@ -63,19 +60,15 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
+            time.sleep(10)
         else:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
+            time.sleep(10)
         time.sleep(10)
     except requests.exceptions.ConnectionError:
-        sprint(
-            f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
         time.sleep(10)
 
 
-def gmil(mail, running):
+def gmil(mail):
     try:
         urlgmail = "https://accounts.google.com/_/lookup/accountlookup?hl=ar&_reqid=42777&rt=j"
         headergmail = {
@@ -114,10 +107,10 @@ def gmil(mail, running):
         send = req.post(urlgmail, headers=headergmail,
                         data=datagmail, timeout=20)
         if (',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[]') in send.text:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
-            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),
+                                     time.strftime("%m"), time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"), time.strftime(
+                "%M"), time.strftime("%S"), time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
@@ -133,19 +126,15 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
+            time.sleep(10)
         else:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
+            time.sleep(10)
         time.sleep(10)
     except requests.exceptions.ConnectionError:
-        sprint(
-            f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
         time.sleep(10)
 
 
-def yho(mail, running):
+def yho(mail):
     try:
         urlyahoo = "https://login.yahoo.com/?.src=fpctx&.intl=id&.lang=id-ID&.done=https://id.yahoo.com"
         headeryahoo = {
@@ -180,10 +169,10 @@ def yho(mail, running):
         send = req.post(urlyahoo, headers=headeryahoo,
                         data=datayahoo, timeout=20)
         if ('"error":"messages.INVALID_USERNAME"') in send.text:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            date = "{}/{}/{}".format(time.strftime("%Y"),time.strftime("%m"),time.strftime("%d"))
-            timing = "{}:{}:{} {}".format(time.strftime("%I"),time.strftime("%M"),time.strftime("%S"),time.strftime("%p"))
+            date = "{}/{}/{}".format(time.strftime("%Y"),
+                                     time.strftime("%m"), time.strftime("%d"))
+            timing = "{}:{}:{} {}".format(time.strftime("%I"), time.strftime(
+                "%M"), time.strftime("%S"), time.strftime("%p"))
             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 -️ NEW AVAILABLE INSTAGRAM
@@ -199,24 +188,15 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
+            time.sleep(10)
         else:
-            sprint(
-                f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
+            time.sleep(10)
         time.sleep(10)
     except requests.exceptions.ConnectionError:
-        sprint(
-            f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
         time.sleep(10)
 
 
 def start(mail):
-    try:
-        global running
-        running += 1
-    except:
-        running = 0
     try:
         urlinsta = 'https://www.instagram.com/accounts/account_recovery_send_ajax/'
         headerinsta = {
@@ -252,41 +232,31 @@ def start(mail):
         if (f'"We sent an email to {mail} with a link to get back into your account."') or ('"status":"ok"') in send.text:
             domain = mail.split('@')[1]
             if domain == "yahoo.com":
-                yho(mail, running)
+                yho(mail)
             elif domain == "gmail.com":
-                gmil(mail, running)
+                gmil(mail)
             elif domain == "hotmail.com" or domain == "live.com" or domain == "outlook.com":
-                hml(mail, running)
+                hml(mail)
         elif ('"message":"No users found"') or ('"status":"fail"') in send.text:
-            sprint(
-                f"\n[NOT AVAILABLE] {mail}\n\n=========================================================")
+            time.sleep(10)
         elif (('"Please wait a few minutes before you try again."' in send.text) or (send.status_code == 429)):
             time.sleep(108000)
         else:
-            sprint(
-                f"\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
+            time.sleep(10)
     except requests.exceptions.ConnectionError:
-        sprint(
-            f"\n[NOT AVAILABLE] {mail}\n\n=========================================================")
-        running -= 1
+        time.sleep(10)
 
 
-running = 0
-max = 1
 while True:
-    if running < max:
-        chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
-        length = 6
-        domain = ["@yahoo.com", "@gmail.com",
-                  "@hotmail.com", "@live.com", "@outlook.com"]
-        for mail in range(1):
+    chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
+    length = 6
+    domainss = ["@yahoo.com", "@gmail.com",
+                "@hotmail.com", "@live.com", "@outlook.com"]
+    for mail in range(1):
+        mail = ""
+        for item in range(length):
             mail = ""
-            for item in range(length):
-                mail = ""
-            for item in range(length):
-                mail += random.choice(chars)
-            mail += random.choice(domain)
-        start(mail)
-    else:
-        time.sleep(1)
+        for item in range(length):
+            mail += random.choice(chars)
+        mail += random.choice(domainss)
+    start(mail)
