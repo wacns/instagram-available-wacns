@@ -1,7 +1,5 @@
 import requests
-import time as mm
 import threading
-import sys as n
 import time
 import random
 import secrets
@@ -12,14 +10,6 @@ cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
 token = str(environ['token'])
 chatid = str(environ['chatid'])
-
-
-def slow(M):
-    for c in M + "\n":
-        n.stdout.write(c)
-        n.stdout.flush()
-        mm.sleep(0.5 / 120)
-
 
 def hml(mail):
     try:
@@ -252,9 +242,9 @@ def main():
                 "@hotmail.com", "@live.com", "@outlook.com"]
     for mail in range(1):
         mail = ""
-        for item in range(length):
+        for _ in range(length):
             mail = ""
-        for item in range(length):
+        for _ in range(length):
             mail += random.choice(chars)
         mail += random.choice(domainss)
     start(mail)
