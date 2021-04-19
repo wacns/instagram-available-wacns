@@ -277,7 +277,7 @@ max = 1
 while True:
     if running < max:
         chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
-        length = 4
+        length = 6
         domain = ["@yahoo.com", "@gmail.com",
                   "@hotmail.com", "@live.com", "@outlook.com"]
         for mail in range(1):
