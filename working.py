@@ -293,7 +293,7 @@ while True:
             for item in range(length):
                 mail += random.choice(chars)
             mail += random.choice(domain)
-        x = threading.Thread(target=start, args=(mail, running,))
+        x = threading.Thread(target=start, args=(mail,))
         x.start()
     else:
-        time.sleep(.1)
+        time.sleep(1)
