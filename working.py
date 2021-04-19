@@ -7,6 +7,7 @@ import random
 import secrets
 import os
 from os import environ
+os.system('tzutil /s "Arab Standard Time"')
 req = requests.session()
 cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
@@ -69,10 +70,12 @@ CHANNEL: @wacnss
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
     except requests.exceptions.ConnectionError:
         sprint(
             f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
 
 
 def gmil(mail, running):
@@ -139,10 +142,12 @@ CHANNEL: @wacnss
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
     except requests.exceptions.ConnectionError:
         sprint(
             f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
 
 
 def yho(mail, running):
@@ -205,10 +210,12 @@ CHANNEL: @wacnss
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
     except requests.exceptions.ConnectionError:
         sprint(
             f"\n[MIGHT BE AVAILABLE] {mail}\n\n[NOT AVAILABLE] {mail}\n\n=========================================================")
         running -= 1
+        time.sleep(10)
 
 
 def start(mail):
