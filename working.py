@@ -46,8 +46,6 @@ def hml(mail, running):
         if ("Neither") in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            with open("./AvailableMails.txt", "a") as htmal:
-                htmal.write(mail + "\n")
             date = "{}/{}/{}".format(time.localtime()
                                      [0], time.localtime()[1], time.localtime()[2])
             timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[4], time.localtime()[5],
@@ -118,8 +116,6 @@ def gmil(mail, running):
         if (',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,[]') in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            with open("./AvailableMails.txt", "a") as gmal:
-                gmal.write(mail + "\n")
             date = "{}/{}/{}".format(time.localtime()
                                      [0], time.localtime()[1], time.localtime()[2])
             timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[
@@ -186,8 +182,6 @@ def yho(mail, running):
         if ('"error":"messages.INVALID_USERNAME"') in send.text:
             sprint(
                 f"\n[MIGHT BE AVAILABLE] {mail}\n\n[AVAILABLE] {mail}\n\n=========================================================")
-            with open("./AvailableMails.txt", "a") as yaho:
-                yaho.write(mail+"\n")
             date = "{}/{}/{}".format(time.localtime()
                                      [0], time.localtime()[1], time.localtime()[2])
             timing = "{}:{}:{} {}".format(time.localtime()[3], time.localtime()[4], time.localtime()[5],
@@ -293,7 +287,6 @@ while True:
             for item in range(length):
                 mail += random.choice(chars)
             mail += random.choice(domain)
-        x = threading.Thread(target=start, args=(mail,))
-        x.start()
+        start(mail)
     else:
         time.sleep(1)
