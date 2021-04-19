@@ -50,12 +50,10 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
-            time.sleep(10)
         else:
-            time.sleep(10)
-        time.sleep(10)
+            pass
     except requests.exceptions.ConnectionError:
-        time.sleep(10)
+        pass
 
 
 def gmil(mail):
@@ -116,12 +114,10 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
-            time.sleep(10)
         else:
-            time.sleep(10)
-        time.sleep(10)
+            pass
     except requests.exceptions.ConnectionError:
-        time.sleep(10)
+        pass
 
 
 def yho(mail):
@@ -178,12 +174,10 @@ CHANNEL: @wacnss
 """
             urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
             send = req.post(urltel)
-            time.sleep(10)
         else:
-            time.sleep(10)
-        time.sleep(10)
+            pass
     except requests.exceptions.ConnectionError:
-        time.sleep(10)
+        pass
 
 
 def start(mail):
@@ -226,13 +220,13 @@ def start(mail):
             elif ("hotmail.com" in mail) or ("live.com" in mail) or ("outlook.com" in mail):
                 hml(mail)
         elif 'No users found' in send.text:
-            time.sleep(10)
+            pass
         elif ('"Please wait a few minutes before you try again."' in send.text) or (send.status_code == 429):
             time.sleep(108000)
         else:
-            time.sleep(10)
+            pass
     except requests.exceptions.ConnectionError:
-        time.sleep(10)
+        pass
 
 
 def main():
