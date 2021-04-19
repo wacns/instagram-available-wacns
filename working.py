@@ -227,19 +227,17 @@ def start(mail):
             'app_id': '',
             'source_account_id': ''
         }
-        send = req.post(urlinsta, headers=headerinsta,
-                        data=datainsta, timeout=20)
-        if (f'"We sent an email to {mail} with a link to get back into your account."') or ('"status":"ok"') in send.text:
-            domain = mail.split('@')[1]
-            if domain == "yahoo.com":
+        send = req.post(urlinsta, headers=headerinsta,data=datainsta)
+        if 'We sent an email to' in send.text:
+            if "yahoo.com" in mail:
                 yho(mail)
-            elif domain == "gmail.com":
+            elif "gmail.com" in mail:
                 gmil(mail)
-            elif domain == "hotmail.com" or domain == "live.com" or domain == "outlook.com":
+            elif ("hotmail.com" in mail) or ("live.com" in mail) or ("outlook.com" in mail):
                 hml(mail)
-        elif ('"message":"No users found"') or ('"status":"fail"') in send.text:
+        elif 'No users found' in send.text:
             time.sleep(10)
-        elif (('"Please wait a few minutes before you try again."' in send.text) or (send.status_code == 429)):
+        elif ('"Please wait a few minutes before you try again."' in send.text) or (send.status_code == 429):
             time.sleep(108000)
         else:
             time.sleep(10)
