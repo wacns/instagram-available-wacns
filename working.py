@@ -237,7 +237,7 @@ def start(mail):
 
 def main():
     chars = "qwertyuiopasdfghjklzxcvbnm1234567890"
-    length = 5
+    length = 6
     domainss = ["@yahoo.com", "@gmail.com",
                 "@hotmail.com", "@live.com", "@outlook.com"]
     for mail in range(1):
