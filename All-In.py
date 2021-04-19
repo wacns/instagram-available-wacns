@@ -6,6 +6,8 @@ from os import environ
 req = requests.session()
 token = str(environ['token'])
 chatid = str(environ['chatid'])
+
+
 def start():
     while True:
         letters = 'qwertyuiopasdfghjklzxcvbnm1234567890._'
@@ -56,6 +58,7 @@ CHANNEL: @wacnss
                     except:
                         pass
                 instagram()
+
                 def snapchat():
                     try:
                         urlsnap = f'https://accounts.snapchat.com/accounts/get_username_suggestions?requested_username={password}&xsrf_token=_W2GHDQLlCXbXPlWAMuOeQ'
@@ -86,6 +89,7 @@ CHANNEL: @wacnss
                     except:
                         pass
                 snapchat()
+
                 def tiktok():
                     try:
                         urltik = f'https://www.tiktok.com/@{password}?'
@@ -121,6 +125,7 @@ CHANNEL: @wacnss
                     except:
                         pass
                 tiktok()
+
                 def twitter():
                     try:
                         urltwit = 'https://tweeterid.com/ajax.php'
@@ -146,7 +151,8 @@ CHANNEL: @wacnss
                         datatwit = {
                             'input': f'{password}'
                         }
-                        send = req.post(urltwit, headers=headertwit, data=datatwit)
+                        send = req.post(
+                            urltwit, headers=headertwit, data=datatwit)
                         if 'error' in send.text:
                             telegram = f"""
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
@@ -165,4 +171,6 @@ CHANNEL: @wacnss
                         pass
                 twitter()
         time.sleep(180)
+
+
 start()

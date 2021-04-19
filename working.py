@@ -11,6 +11,7 @@ mylock = threading.Lock()
 token = str(environ['token'])
 chatid = str(environ['chatid'])
 
+
 def hml(mail):
     try:
         urlhotmail = f"https://odc.officeapps.live.com/odc/emailhrd/getidp?hm=0&emailAddress={mail}&_=1604288577990"
@@ -211,7 +212,7 @@ def start(mail):
             'app_id': '',
             'source_account_id': ''
         }
-        send = req.post(urlinsta, headers=headerinsta,data=datainsta)
+        send = req.post(urlinsta, headers=headerinsta, data=datainsta)
         if 'We sent an email to' in send.text:
             if "yahoo.com" in mail:
                 yho(mail)
@@ -242,6 +243,7 @@ def main():
             mail += random.choice(chars)
         mail += random.choice(domainss)
     start(mail)
+
 
 threadz = []
 for _ in range(150):
