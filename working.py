@@ -250,7 +250,7 @@ def main():
     start(mail)
 
 threadz = []
-for _ in range(10):
+for _ in range(150):
     th = threading.Thread(target=main)
     th.start()
     threadz.append(th)
