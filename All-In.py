@@ -164,5 +164,5 @@ CHANNEL: @wacnss
                     except:
                         pass
                 twitter()
-        time.sleep(60)
+        time.sleep(180)
 start()
