@@ -201,60 +201,6 @@ CHANNEL: @wacnss
                     except:
                         pass
                 tiktok()
-
-                def twitter():
-                    try:
-                        letters = 'qwertyuiopasdfghjklzxcvbnm1234567890_'
-                        amount = int(1)
-                        length = int(5)
-                        for password in range(amount):
-                            password = ''
-                            for _ in range(length):
-                                password = ''
-                            for _ in range(length):
-                                password += random.choice(letters)
-                        urltwit = 'https://tweeterid.com/ajax.php'
-                        headertwit = {
-                            'Accept': '/',
-                            'Accept-Encoding': 'gzip, deflate, br',
-                            'Accept-Language': 'ar',
-                            'Connection': 'keep-alive',
-                            'Content-Length': '9',
-                            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                            'Cookie': '__utma=116903043.1318232014.1614775995.1614775995.1614775995.1; __utmc=116903043; __utmz=116903043.1614775995.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; __utmb=116903043.1.10.1614775995; __gads=ID=d7647a854bea65be-22c04e79f1a600a4:T=1614776057:RT=1614776057:S=ALNI_Mbf9fK4B3inAKAT1xrr-qkaEx5NEA',
-                            'Host': 'tweeterid.com',
-                            'Origin': 'https://tweeterid.com',
-                            'Referer': 'https://tweeterid.com/',
-                            'sec-ch-ua': '"Google Chrome";v="89", "Chromium";v="89", ";Not A Brand";v="99"',
-                            'sec-ch-ua-mobile': '?0',
-                            'Sec-Fetch-Dest': 'empty',
-                            'Sec-Fetch-Mode': 'cors',
-                            'Sec-Fetch-Site': 'same-origin',
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Safari/537.36',
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
-                        datatwit = {
-                            'input': f'{password}'
-                        }
-                        send = req.post(
-                            urltwit, headers=headertwit, data=datatwit)
-                        if 'error' in send.text:
-                            telegram = f"""
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
--️ NEW AVAILABLE *TWITTER*
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-- USER: *{password}*
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-CHANNEL: @wacnss
-▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
-"""
-                            urltel = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={chatid}&text={telegram}&parse_mode=MARKDOWN"
-                            send = req.post(urltel)
-                        else:
-                            pass
-                    except:
-                        pass
-                twitter()
         time.sleep(7200)
 
 

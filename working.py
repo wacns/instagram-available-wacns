@@ -242,9 +242,18 @@ def main():
         for _ in range(length):
             mail += random.choice(chars)
         mail += random.choice(domainss)
-    start(mail)
+    while True:
+        Reproxy = {
+            "http://": f"http://{random.choice(proxylist)}",
+            "https://": f"https://{random.choice(proxylist)}"
+        }
+        req.proxies = Reproxy
+        start(mail)
 
-
+proxylist = []
+proxies = open('proxy.txt', 'r').read().splitlines()
+for pr in proxies:
+    proxylist.append(pr)
 threadz = []
 for _ in range(150):
     th = threading.Thread(target=main)
