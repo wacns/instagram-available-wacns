@@ -8,8 +8,10 @@ from os import environ
 req = requests.session()
 cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
-token = str(environ['token'])
-chatid = str(environ['chatid'])
+# token = str(environ['token'])
+# chatid = str(environ['chatid'])
+chatid = ""
+token = ""
 
 
 def hml(mail):
@@ -223,7 +225,7 @@ def start(mail):
         elif 'No users found' in send.text:
             pass
         elif ('"Please wait a few minutes before you try again."' in send.text) or (send.status_code == 429):
-            time.sleep(108000)
+            time.sleep(10800)
         else:
             pass
     except requests.exceptions.ConnectionError:
@@ -243,17 +245,8 @@ def main():
             mail += random.choice(chars)
         mail += random.choice(domainss)
     while True:
-        Reproxy = {
-            "http://": f"http://{random.choice(proxylist)}",
-            "https://": f"https://{random.choice(proxylist)}"
-        }
-        req.proxies = Reproxy
         start(mail)
 
-proxylist = []
-proxies = open('proxy.txt', 'r').read().splitlines()
-for pr in proxies:
-    proxylist.append(pr)
 threadz = []
 for _ in range(150):
     th = threading.Thread(target=main)

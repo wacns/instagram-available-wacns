@@ -201,7 +201,7 @@ CHANNEL: @wacnss
                     except:
                         pass
                 tiktok()
-        time.sleep(7200)
+        time.sleep(10800)
 
 
 start()
