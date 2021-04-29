@@ -8,10 +8,8 @@ from os import environ
 req = requests.session()
 cookie = secrets.token_hex(8)*2
 mylock = threading.Lock()
-# token = str(environ['token'])
-# chatid = str(environ['chatid'])
-chatid = ""
-token = ""
+token = str(environ['token'])
+chatid = str(environ['chatid'])
 
 
 def hml(mail):
